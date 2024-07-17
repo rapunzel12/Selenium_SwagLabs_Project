@@ -1,9 +1,6 @@
 package Base;
 
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.ProductsPage;
-import Pages.SingleProductPage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +17,7 @@ public class BaseTest {
     public ProductsPage productsPage;
     public HomePage homePage;
     public SingleProductPage singleProductPage;
+    public YourCartPage yourCartPage;
 
     @BeforeClass
     public void setUp(){
@@ -30,6 +28,7 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         homePage = new HomePage(driver);
         singleProductPage = new SingleProductPage(driver);
+        yourCartPage = new YourCartPage(driver);
     }
 
     // pomocna metoda za login, nije testna metoda
