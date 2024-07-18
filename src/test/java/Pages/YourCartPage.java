@@ -32,7 +32,7 @@ public class YourCartPage {
     }
 
     public List<WebElement> getRemoveButtons() {
-        return driver.findElements(By.cssSelector(".btn.btn_secondary.btn_small.cart)button"));
+        return driver.findElements(By.cssSelector(".btn.btn_secondary.btn_small.cart.button"));
     }
 
     public WebElement getContinueShoppingCartButton() {
@@ -65,8 +65,12 @@ public class YourCartPage {
         getContinueShoppingCartButton().click();
     }
 
-    public void cicONCheckoutButton(){
+    public void clickOnCheckoutButton(){
         getCheckoutButton().click();
     }
 
+    // metoda za brojanje proizvoda u korpi
+    public int getNumberOfProductsInCart() {
+        return driver.findElements(By.className("cart_item")).size();
+    }
 }

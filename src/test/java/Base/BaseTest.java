@@ -18,6 +18,9 @@ public class BaseTest {
     public HomePage homePage;
     public SingleProductPage singleProductPage;
     public YourCartPage yourCartPage;
+    public YourInformationPage yourInformationPage;
+    public CheckoutOverviewPage checkoutOverviewPage;
+    public CheckoutCompletePage checkoutCompletePage;
 
     @BeforeClass
     public void setUp(){
@@ -29,6 +32,9 @@ public class BaseTest {
         homePage = new HomePage(driver);
         singleProductPage = new SingleProductPage(driver);
         yourCartPage = new YourCartPage(driver);
+        yourInformationPage = new YourInformationPage(driver);
+        checkoutCompletePage = new CheckoutCompletePage(driver);
+        checkoutOverviewPage = new CheckoutOverviewPage(driver);
     }
 
     // pomocna metoda za login, nije testna metoda
@@ -44,5 +50,21 @@ public class BaseTest {
         productsPage.clickOnResetAppStateLink();
     }
 
+    // pomocna metoda za dodavanje product-a u cart
+    public void addToCartHelpMethod(){
+        homePage.clickOnAddToCartButtons(3);
+    }
 
+    // pomocna metoda za skracivanje koraka u procesu testiranja karta vezano za kliktanje na sam kart
+    public void cartIconHelpMethod(){
+        yourCartPage.clickOnShoppingCartIcon();
+        yourCartPage.clickOnCheckoutButton();
+    }
+
+    // poocna metoda za licne podatke koje korisnik unosi priliko porucivanja
+    public void personalData(){
+        yourInformationPage.firstnameInputData("Pera");
+        yourInformationPage.lastnameInputData("Peric");
+        yourInformationPage.zipInputField("1234568");
+    }
 }
