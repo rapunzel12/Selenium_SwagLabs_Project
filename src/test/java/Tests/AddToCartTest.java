@@ -105,8 +105,18 @@ public class AddToCartTest extends BaseTest {
         personalData();
         yourInformationPage.clickOnContinueButton();
         checkoutOverviewPage.clikOnFinishButton();
-        Assert.assertTrue(checkoutCompletePage.getSussessMsg().isDisplayed());
-        Assert.assertTrue(checkoutCompletePage.getOrderInfo().isDisplayed());
+        checkoutCompletePage.clickOnBackToProductsButton();
+        Assert.assertTrue(productsPage.getTitle().isDisplayed());
+    }
+
+    @Test
+    public void cancelPurchase(){
+        addToCartHelpMethod();
+        cartIconHelpMethod();
+        personalData();
+        yourInformationPage.clickOnContinueButton();
+        checkoutOverviewPage.clickOnCancelButton();
+        Assert.assertTrue(productsPage.getTitle().isDisplayed());
     }
 
 }
